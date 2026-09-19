@@ -1,0 +1,107 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Detail - ZAISTA</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="ZAISTA" width="44">
+        <span class="brand-name">ZAISTA</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Back to Recipes</a>
+        <a href="cart.html" class="cart-btn">
+          <span>Cart</span>
+          <span id="cart-badge" class="badge">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container detail-container" id="recipe-detail-root">
+    <div class="loading-spinner">Loading recipe details from DummyJSON...</div>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      Cart.updateBadge();
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || 1;
+      const root = document.getElementById('recipe-detail-root');
+      try {
+        const recipe = await API.getRecipeById(id);
+        let servings = recipe.servings || 4;
+
+        function render() {
+          root.innerHTML = `
+            <div class="detail-grid">
+              <div class="detail-gallery">
+                <img src="${recipe.image}" alt="${recipe.name}" class="detail-main-img">
+                <div class="meta-pills">
+                  <span>⏱ Prep: ${recipe.prepTimeMinutes}m</span>
+                  <span>🔥 Cook: ${recipe.cookTimeMinutes}m</span>
+                  <span>⭐ ${recipe.rating} (${recipe.reviewCount || 40} reviews)</span>
+                  <span>🍽 ${recipe.cuisine}</span>
+                </div>
+              </div>
+              <div class="detail-content">
+                <span class="category-chip">${recipe.difficulty} Level</span>
+                <h1>${recipe.name}</h1>
+                <p class="calories">Calories: ~<strong>${recipe.caloriesPerServing}</strong> kcal per serving</p>
+
+                <div class="servings-adjuster">
+                  <span>Servings: </span>
+                  <button id="dec-servings" class="qty-btn">-</button>
+                  <strong id="servings-num">${servings}</strong>
+                  <button id="inc-servings" class="qty-btn">+</button>
+                </div>
+
+                <h3>Ingredients</h3>
+                <ul class="checklist">
+                  ${recipe.ingredients.map(ing => `<li><input type="checkbox"> ${ing}</li>`).join('')}
+                </ul>
+
+                <h3>Preparation Steps</h3>
+                <ol class="instructions-list">
+                  ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
+                </ol>
+
+                <div class="detail-actions">
+                  <span class="detail-price">$${((recipe.price || 24.50) * (servings / (recipe.servings || 4))).toFixed(2)}</span>
+                  <button id="add-to-cart-btn" class="btn btn-primary">Add to Cart & Order</button>
+                </div>
+              </div>
+            </div>
+          `;
+
+          document.getElementById('dec-servings').onclick = () => {
+            if (servings > 1) { servings--; render(); }
+          };
+          document.getElementById('inc-servings').onclick = () => {
+            servings++; render();
+          };
+          document.getElementById('add-to-cart-btn').onclick = () => {
+            Cart.addItem(recipe, 1, servings);
+            Toast.show('Added to Cart', recipe.name + ' (' + servings + ' servings)', 'success');
+          };
+        }
+        render();
+      } catch (err) {
+        root.innerHTML = '<p class="error">Failed to load recipe details. <a href="index.html">Return home</a></p>';
+      }
+    });
+  </script>
+</body>
+</html> -->
