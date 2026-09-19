@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZAISTA - Premium Culinary & Gourmet Ordering</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="ZAISTA" width="44" height="44">
+        <span class="brand-name">ZAISTA</span>
+      </a>
+      <div class="search-bar">
+        <input type="text" id="recipe-search-input" placeholder="Search culinary recipes, cuisines, tags...">
+        <button id="search-btn">Search</button>
+      </div>
+      <nav class="nav-links">
+        <a href="#featured">Recipes</a>
+        <a href="#how-to-order">How It Works</a>
+        <a href="#special">Chef's Special</a>
+        <a href="cart.html" class="cart-btn">
+          <span>Cart</span>
+          <span id="cart-badge" class="badge">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Haute Cuisine, Delivered Fresh</span>
+      <h1 class="hero-title">Culinary Perfection at Your Dining Table</h1>
+      <p class="hero-desc">Explore hand-crafted recipes by world-class chefs, order fresh pre-measured ingredients or finished gourmet meals in one click.</p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn btn-primary">Explore Recipes</a>
+        <a href="cart.html" class="btn btn-accent">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories & Tags -->
+  <section class="section categories-section">
+    <div class="container">
+      <h2 class="section-title">Explore By Palate</h2>
+      <div id="category-pills" class="pills-container">
+        <!-- Injected via main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Recipes Grid with Sorting -->
+  <section id="featured" class="section featured-section">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <h2 class="section-title">Curated Chef Recipes</h2>
+          <p class="section-subtitle">Real-time synchronized with DummyJSON API</p>
+        </div>
+        <div class="sort-controls">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select">
+            <option value="rating">Top Rated</option>
+            <option value="cookTime">Cook Time (Fastest)</option>
+            <option value="difficulty">Difficulty</option>
+            <option value="calories">Calories</option>
+          </select>
+        </div>
+      </div>
+      <div id="recipe-grid" class="recipes-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+      <div class="pagination-actions">
+        <button id="load-more-btn" class="btn btn-outline">Load More Recipes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chef's Special Spotlight -->
+  <section id="special" class="section chef-spotlight">
+    <div class="container">
+      <div class="spotlight-card">
+        <div class="spotlight-media">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Chef Special">
+          <div class="discount-badge">20% OFF TODAY</div>
+        </div>
+        <div class="spotlight-info">
+          <span class="spotlight-tag">Chef's Masterpiece</span>
+          <h3>Dry-Aged Ribeye with Herb Demi-Glace</h3>
+          <p>Slowly basted with cultured butter, rosemary sprigs, and served alongside smoked garlic pomme purée.</p>
+          <div class="countdown-timer">
+            <span>Special Ends in: </span>
+            <strong id="special-timer">05:42:19</strong>
+          </div>
+          <div class="price-row">
+            <span class="original-price">$42.00</span>
+            <span class="current-price">$33.60</span>
+          </div>
+          <button id="spotlight-order-btn" class="btn btn-primary">Add Special to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How To Order -->
+  <section id="how-to-order" class="section guide-section">
+    <div class="container text-center">
+      <h2 class="section-title">How ZAISTA Works</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h4>Discover & Select</h4>
+          <p>Browse global cuisines, adjust portion sizes, and inspect comprehensive nutritional breakdowns.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h4>1-Click Quick Order</h4>
+          <p>Cart automatically organizes exact gourmet ingredients and portions directly for delivery.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h4>Fresh Temperature Delivery</h4>
+          <p>Delivered in insulated eco-luxury cooling totes ready to cook or savor immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/images/logo.svg" alt="ZAISTA" width="36">
+          <span>ZAISTA</span>
+        </div>
+        <p>Premium Culinary Web Application & Gourmet Delivery Platform. Powered by DummyJSON Recipes API.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cart.html">Checkout</a></li>
+          <li><a href="#featured">All Recipes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p>Subscribe for seasonal tasting menus & secret chef recipes.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email...">
+          <button class="btn btn-accent">Join</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+    <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="ZAISTA" width="44">
+        <span class="brand-name">ZAISTA</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Continue Shopping</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container cart-layout">
+    <div class="cart-items-panel">
+      <h2>Your Gourmet Order</h2>
+      <div id="cart-list" class="cart-list-container">
+        <!-- Rendered via cart.js -->
+      </div>
+    </div>
+    <div class="checkout-summary-panel">
+      <h3>Order Summary</h3>
+      <div class="summary-line">
+        <span>Subtotal:</span>
+        <span id="summary-subtotal">$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Promo Discount:</span>
+        <span id="summary-discount" class="text-green">-$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Estimated Tax:</span>
+        <span id="summary-tax">$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Delivery:</span>
+        <span id="summary-delivery">$4.99</span>
+      </div>
+      <hr>
+      <div class="summary-line total">
+        <strong>Total:</strong>
+        <strong id="summary-total">$0.00</strong>
+      </div>
+
+      <div class="promo-box">
+        <input type="text" id="promo-input" placeholder="Promo code (e.g. ZAISTA10)">
+        <button id="apply-promo-btn" class="btn btn-outline">Apply</button>
+      </div>
+
+      <form id="checkout-form" class="checkout-form">
+        <h4>Delivery Information</h4>
+        <input type="text" id="cust-name" placeholder="Full Name" required>
+        <input type="email" id="cust-email" placeholder="Email Address" required>
+        <input type="text" id="cust-address" placeholder="Delivery Street Address" required>
+        <button type="submit" class="btn btn-accent btn-block">Place Gourmet Order</button>
+      </form>
+    </div>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Cart.renderCartPage();
+      const form = document.getElementById('checkout-form');
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        const items = Cart.getItems();
+        if (items.length === 0) {
+          Toast.show('Empty Cart', 'Please add recipes to cart before checking out.', 'warning');
+          return;
+        }
+        Toast.show('Order Confirmed!', 'Thank you ' + document.getElementById('cust-name').value + '. Your culinary order is being prepared!', 'success');
+        Cart.clear();
+        setTimeout(() => { window.location.href = 'index.html'; }, 2500);
+      };
+    });
+  </script>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="ZAISTA" width="44">
+        <span class="brand-name">ZAISTA</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Back to Recipes</a>
+        <a href="cart.html" class="cart-btn">
+          <span>Cart</span>
+          <span id="cart-badge" class="badge">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container detail-container" id="recipe-detail-root">
+    <div class="loading-spinner">Loading recipe details from DummyJSON...</div>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      Cart.updateBadge();
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || 1;
+      const root = document.getElementById('recipe-detail-root');
+      try {
+        const recipe = await API.getRecipeById(id);
+        let servings = recipe.servings || 4;
+
+        function render() {
+          root.innerHTML = `
+            <div class="detail-grid">
+              <div class="detail-gallery">
+                <img src="${recipe.image}" alt="${recipe.name}" class="detail-main-img">
+                <div class="meta-pills">
+                  <span>⏱ Prep: ${recipe.prepTimeMinutes}m</span>
+                  <span>🔥 Cook: ${recipe.cookTimeMinutes}m</span>
+                  <span>⭐ ${recipe.rating} (${recipe.reviewCount || 40} reviews)</span>
+                  <span>🍽 ${recipe.cuisine}</span>
+                </div>
+              </div>
+              <div class="detail-content">
+                <span class="category-chip">${recipe.difficulty} Level</span>
+                <h1>${recipe.name}</h1>
+                <p class="calories">Calories: ~<strong>${recipe.caloriesPerServing}</strong> kcal per serving</p>
+
+                <div class="servings-adjuster">
+                  <span>Servings: </span>
+                  <button id="dec-servings" class="qty-btn">-</button>
+                  <strong id="servings-num">${servings}</strong>
+                  <button id="inc-servings" class="qty-btn">+</button>
+                </div>
+
+                <h3>Ingredients</h3>
+                <ul class="checklist">
+                  ${recipe.ingredients.map(ing => `<li><input type="checkbox"> ${ing}</li>`).join('')}
+                </ul>
+
+                <h3>Preparation Steps</h3>
+                <ol class="instructions-list">
+                  ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
+                </ol>
+
+                <div class="detail-actions">
+                  <span class="detail-price">$${((recipe.price || 24.50) * (servings / (recipe.servings || 4))).toFixed(2)}</span>
+                  <button id="add-to-cart-btn" class="btn btn-primary">Add to Cart & Order</button>
+                </div>
+              </div>
+            </div>
+          `;
+
+          document.getElementById('dec-servings').onclick = () => {
+            if (servings > 1) { servings--; render(); }
+          };
+          document.getElementById('inc-servings').onclick = () => {
+            servings++; render();
+          };
+          document.getElementById('add-to-cart-btn').onclick = () => {
+            Cart.addItem(recipe, 1, servings);
+            Toast.show('Added to Cart', recipe.name + ' (' + servings + ' servings)', 'success');
+          };
+        }
+        render();
+      } catch (err) {
+        root.innerHTML = '<p class="error">Failed to load recipe details. <a href="index.html">Return home</a></p>';
+      }
+    });
+  </script>
+  <script src="api.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+<script src="toast.js"></script>
+</body>
+</html>
