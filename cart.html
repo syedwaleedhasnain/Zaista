@@ -1,0 +1,92 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart & Checkout - ZAISTA</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.svg" alt="ZAISTA" width="44">
+        <span class="brand-name">ZAISTA</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Continue Shopping</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container cart-layout">
+    <div class="cart-items-panel">
+      <h2>Your Gourmet Order</h2>
+      <div id="cart-list" class="cart-list-container">
+        <!-- Rendered via cart.js -->
+      </div>
+    </div>
+    <div class="checkout-summary-panel">
+      <h3>Order Summary</h3>
+      <div class="summary-line">
+        <span>Subtotal:</span>
+        <span id="summary-subtotal">$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Promo Discount:</span>
+        <span id="summary-discount" class="text-green">-$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Estimated Tax:</span>
+        <span id="summary-tax">$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Delivery:</span>
+        <span id="summary-delivery">$4.99</span>
+      </div>
+      <hr>
+      <div class="summary-line total">
+        <strong>Total:</strong>
+        <strong id="summary-total">$0.00</strong>
+      </div>
+
+      <div class="promo-box">
+        <input type="text" id="promo-input" placeholder="Promo code (e.g. ZAISTA10)">
+        <button id="apply-promo-btn" class="btn btn-outline">Apply</button>
+      </div>
+
+      <form id="checkout-form" class="checkout-form">
+        <h4>Delivery Information</h4>
+        <input type="text" id="cust-name" placeholder="Full Name" required>
+        <input type="email" id="cust-email" placeholder="Email Address" required>
+        <input type="text" id="cust-address" placeholder="Delivery Street Address" required>
+        <button type="submit" class="btn btn-accent btn-block">Place Gourmet Order</button>
+      </form>
+    </div>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Cart.renderCartPage();
+      const form = document.getElementById('checkout-form');
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        const items = Cart.getItems();
+        if (items.length === 0) {
+          Toast.show('Empty Cart', 'Please add recipes to cart before checking out.', 'warning');
+          return;
+        }
+        Toast.show('Order Confirmed!', 'Thank you ' + document.getElementById('cust-name').value + '. Your culinary order is being prepared!', 'success');
+        Cart.clear();
+        setTimeout(() => { window.location.href = 'index.html'; }, 2500);
+      };
+    });
+  </script>
+</body>
+</html> -->
